@@ -1,8 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?><typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
   <name>typeSystemDescriptor</name>
   <description/>
   <version>1.0</version>
   <vendor/>
+  <imports>
+    <import name="AbstractTypeSystem"/>
+    <import name="ExternalTypeSystem"/>
+  </imports>
   <types>
     <typeDescription>
       <name>edu.cmu.lti.qalab.types.Sentence</name>
