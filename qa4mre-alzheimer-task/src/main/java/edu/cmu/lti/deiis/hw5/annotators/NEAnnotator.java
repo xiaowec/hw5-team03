@@ -29,7 +29,6 @@ public class NEAnnotator extends JCasAnnotator_ImplBase{
 		// TODO Auto-generated method stub
 		//TestDocument testDoc=Utils.getTestDocumentFromCAS(jCas);
 		
-		
 		ArrayList<Sentence> sentList=Utils.getSentenceListFromTestDocCAS(jCas);
 		for(int i=0;i<sentList.size();i++){
 			Sentence sentence=sentList.get(i);
