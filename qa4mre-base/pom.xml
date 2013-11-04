@@ -57,6 +57,7 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
+		<!--  
 		<dependency>
 			<groupId>edu.stanford.nlp</groupId>
 			<artifactId>stanford-corenlp</artifactId>
@@ -74,6 +75,7 @@
 			<artifactId>solr-provider</artifactId>
 			<version>1.0.17</version>
 		</dependency>
+		-->
 
 	</dependencies>
 	<!-- <scm> <connection>scm:git:git@github.com:alkeshpatel11/hw1-alkeshku.git</connection> 
