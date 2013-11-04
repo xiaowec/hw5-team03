@@ -5,6 +5,10 @@
 	<artifactId>qa4mre-alzheimer-task</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
+	<properties>
+		<maven.install.plugin.version>2.3.1</maven.install.plugin.version>
+	</properties>
+
 	<repositories>
 		<repository>
 			<id>oaqa</id>
