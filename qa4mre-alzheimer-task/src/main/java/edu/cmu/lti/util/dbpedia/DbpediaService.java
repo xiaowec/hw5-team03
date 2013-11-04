@@ -1,4 +1,4 @@
-package edu.cmu.lti.dbpedia;
+package edu.cmu.lti.util.dbpedia;
 
 import java.util.Iterator;
 import java.util.Map.Entry;

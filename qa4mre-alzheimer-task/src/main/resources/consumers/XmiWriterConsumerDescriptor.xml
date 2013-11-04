@@ -1,37 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?><casConsumerDescription xmlns="http://uima.apache.org/resourceSpecifier">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<casConsumerDescription xmlns="http://uima.apache.org/resourceSpecifier">
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
-  <implementationName>edu.cmu.lti.deiis.hw5.casconsumers.QA4MRECasConsumer</implementationName>
+  <implementationName>org.apache.uima.tools.components.XmiWriterCasConsumer</implementationName>
   <processingResourceMetaData>
-    <name>CasConsumerDescriptor</name>
+    <name>XmiWriterConsumerDescriptor</name>
     <description/>
     <version>1.0</version>
     <vendor/>
     <configurationParameters>
       <configurationParameter>
-        <name>OUTPUT_DIR</name>
-        <description>output to be written</description>
+        <name>OutputDirectory</name>
+        <description>Path to write Cas as XMI</description>
         <type>String</type>
         <multiValued>false</multiValued>
-        <mandatory>false</mandatory>
-      </configurationParameter>
-      <configurationParameter>
-        <name>THRESHOLD</name>
-        <type>String</type>
-        <multiValued>false</multiValued>
-        <mandatory>false</mandatory>
+        <mandatory>true</mandatory>
       </configurationParameter>
     </configurationParameters>
     <configurationParameterSettings>
       <nameValuePair>
-        <name>OUTPUT_DIR</name>
+        <name>OutputDirectory</name>
         <value>
           <string>XMIs/12-test-alzheimer/</string>
-        </value>
-      </nameValuePair>
-      <nameValuePair>
-        <name>THRESHOLD</name>
-        <value>
-          <string>3.0</string>
         </value>
       </nameValuePair>
     </configurationParameterSettings>

@@ -8,7 +8,7 @@
     <vendor/>
     <configurationParameters>
       <configurationParameter>
-        <name>INPUT_DIR</name>
+        <name>inputDir</name>
         <description>Input file to read</description>
         <type>String</type>
         <multiValued>false</multiValued>
@@ -17,7 +17,7 @@
     </configurationParameters>
     <configurationParameterSettings>
       <nameValuePair>
-        <name>INPUT_DIR</name>
+        <name>inputDir</name>
         <value>
           <string>data/12-test-alzheimer/</string>
         </value>
