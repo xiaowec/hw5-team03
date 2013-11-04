@@ -1,0 +1,45 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>edu.cmu.lti.qalab</groupId>
+	<artifactId>qa4mre-solr</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>solr</name>
+	<description>Project for solr dependencies</description>
+
+	<dependencies>
+                <dependency>
+                        <groupId>edu.cmu.lti.oaqa.core.provider</groupId>
+                        <artifactId>solr-provider</artifactId>
+                        <version>1.0.17</version>
+                        <exclusions>
+            <exclusion>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-nop</artifactId>
+            </exclusion>
+            <exclusion>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+             </exclusion>
+             <exclusion>
+                 <groupId>org.slf4j</groupId>
+                 <artifactId>jcl-over-slf4j</artifactId>
+             </exclusion>
+        </exclusions>
+                </dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<inherited>true</inherited>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+</project>

@@ -44,14 +44,14 @@ public class QA4MRETestDocReader extends CollectionReader_ImplBase {
 	public void initialize() throws ResourceInitializationException {
 		try {
 
-			File inputDir = new File(
-					(String) getConfigParameterValue("INPUT_DIR"));
+			File inputDir = new File((String) getConfigParameterValue("inputDir"));
 			testFile = inputDir.listFiles(new OnlyNXML("xml"));
 			System.out.println("Total files: " + testFile.length);
 			String xmlText = this.readTestFile();
 			this.parseTestDocument(xmlText);
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.exit(1);
 		}
 	}
 
@@ -73,7 +73,6 @@ public class QA4MRETestDocReader extends CollectionReader_ImplBase {
 		}
 
 		if (documents == null) {
-
 			try {
 				String xmlText = readTestFile();
 				this.parseTestDocument(xmlText);
@@ -84,19 +83,16 @@ public class QA4MRETestDocReader extends CollectionReader_ImplBase {
 		}
 
 		Element readingTestElement = (Element) documents.item(nCurrDoc);
-		NodeList testDocNodeList = readingTestElement
-				.getElementsByTagName("doc");
+		NodeList testDocNodeList = readingTestElement.getElementsByTagName("doc");
 
 		String docText = testDocNodeList.item(0).getTextContent().trim();
 
-		String testDocId = ((Element) testDocNodeList.item(0))
-				.getAttribute("d_id");
+		String testDocId = ((Element) testDocNodeList.item(0)).getAttribute("d_id");
 		String fileName = testFile[nCurrFile].getName();
 
 		String docId = fileName.replace(".xmi", "") + "_" + testDocId;
 
-		NodeList questionNodeList = readingTestElement
-				.getElementsByTagName("q");
+		NodeList questionNodeList = readingTestElement.getElementsByTagName("q");
 
 		ArrayList<QuestionAnswerSet> questionAnswersList = new ArrayList<QuestionAnswerSet>();
 
@@ -105,8 +101,7 @@ public class QA4MRETestDocReader extends CollectionReader_ImplBase {
 			Element questionEle = (Element) questionNodeList.item(i);
 			NodeList questionNode = questionEle.getElementsByTagName("q_str");
 			String questionStr = questionNode.item(0).getTextContent();
-			NodeList answerNodeList = questionEle
-					.getElementsByTagName("answer");
+			NodeList answerNodeList = questionEle.getElementsByTagName("answer");
 
 			Question question = new Question(jcas);
 			question.setText(questionStr);
@@ -121,9 +116,9 @@ public class QA4MRETestDocReader extends CollectionReader_ImplBase {
 				Answer ans = new Answer(jcas);
 
 				if (isCorrect != null) {
-					if (isCorrect.equals("Yes")){
+					if (isCorrect.equals("Yes")) {
 						ans.setIsCorrect(true);
-					}else{
+					} else {
 						ans.setIsCorrect(false);
 					}
 				} else {
@@ -133,16 +128,14 @@ public class QA4MRETestDocReader extends CollectionReader_ImplBase {
 				ans.setText(answer);
 				answerCollection.add(ans);
 			}
-			FSList answerFSList = this.createAnswerFSList(jcas,
-					answerCollection);
+			FSList answerFSList = this.createAnswerFSList(jcas, answerCollection);
 			QuestionAnswerSet questionAnswers = new QuestionAnswerSet(jcas);
 			questionAnswers.setQuestion(question);
 			questionAnswers.setAnswerList(answerFSList);
 
 			questionAnswersList.add(questionAnswers);
 		}
-		FSList quetionAnswersFSList = this.createQuestionAnswersFSList(jcas,
-				questionAnswersList);
+		FSList quetionAnswersFSList = this.createQuestionAnswersFSList(jcas, questionAnswersList);
 
 		// put document in CAS
 		jcas.setDocumentText(docText);
@@ -171,8 +164,7 @@ public class QA4MRETestDocReader extends CollectionReader_ImplBase {
 			}
 			xmlText = xmlText.trim();
 			// System.out.println(xmlText);
-			System.out
-					.println("Read: " + testFile[nCurrFile].getAbsolutePath());
+			System.out.println("Read: " + testFile[nCurrFile].getAbsolutePath());
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -206,8 +198,7 @@ public class QA4MRETestDocReader extends CollectionReader_ImplBase {
 		return list;
 	}
 
-	public FSList createQuestionAnswersFSList(JCas aJCas,
-			Collection<QuestionAnswerSet> aCollection) {
+	public FSList createQuestionAnswersFSList(JCas aJCas, Collection<QuestionAnswerSet> aCollection) {
 		if (aCollection.size() == 0) {
 			return new EmptyFSList(aJCas);
 		}
@@ -239,13 +230,12 @@ public class QA4MRETestDocReader extends CollectionReader_ImplBase {
 		for (int i = 0; i < topicNodeList.getLength(); i++) {
 
 			Element topicElement = (Element) topicNodeList.item(i);
-			String topicId=topicElement.getAttribute("t_id");
-			NodeList readingTestNodeList = topicElement
-					.getElementsByTagName("reading-test");
-			
+			String topicId = topicElement.getAttribute("t_id");
+			NodeList readingTestNodeList = topicElement.getElementsByTagName("reading-test");
+
 			documents = readingTestNodeList;
-			//Element eleReading=(Element)readingTestNodeList;
-			//String rId=eleReading.getAttribute("r_id");
+			// Element eleReading=(Element)readingTestNodeList;
+			// String rId=eleReading.getAttribute("r_id");
 		}
 
 	}
@@ -262,8 +252,7 @@ public class QA4MRETestDocReader extends CollectionReader_ImplBase {
 
 	@Override
 	public Progress[] getProgress() {
-		return new Progress[] { new ProgressImpl(nCurrFile, testFile.length,
-				Progress.ENTITIES) };
+		return new Progress[] { new ProgressImpl(nCurrFile, testFile.length, Progress.ENTITIES) };
 	}
 
 	@Override
@@ -271,8 +260,8 @@ public class QA4MRETestDocReader extends CollectionReader_ImplBase {
 		// return nCurrFile < 10;
 		// return nCurrFile < testFile.length;
 		if (nCurrFile < testFile.length && nCurrDoc < documents.getLength()) {
-			//System.out.println("***********True: currFile " + nCurrFile
-				//	+ "\tcurrDoc " + nCurrDoc);
+			// System.out.println("***********True: currFile " + nCurrFile
+			// + "\tcurrDoc " + nCurrDoc);
 			return true;
 		}
 		return false;
