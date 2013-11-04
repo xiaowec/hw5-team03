@@ -79,9 +79,9 @@
 			<classifier>models</classifier>
 		</dependency>
 		<dependency>
-			<groupId>edu.cmu.lti.oaqa.core.provider</groupId>
-			<artifactId>solr-provider</artifactId>
-			<version>1.0.17</version>
+			<groupId>edu.cmu.lti.qalab</groupId>
+			<artifactId>qa4mre-solr</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 	<scm>
