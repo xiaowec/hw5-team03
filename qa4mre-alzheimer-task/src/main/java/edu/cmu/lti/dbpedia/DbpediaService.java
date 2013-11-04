@@ -13,7 +13,7 @@ import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
 
-import edu.cmu.lti.type.DbpediaAnnotation;
+import edu.cmu.lti.qa4mre.type.DbpediaAnnotation;
 
 public class DbpediaService {
 	// TODO: String concanetion probably is a bad idea

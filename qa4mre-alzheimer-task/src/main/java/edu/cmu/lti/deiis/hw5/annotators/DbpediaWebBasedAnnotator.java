@@ -37,7 +37,7 @@ import org.xml.sax.SAXException;
 import com.google.common.collect.ArrayListMultimap;
 
 import edu.cmu.lti.dbpedia.DbpediaService;
-import edu.cmu.lti.type.DbpediaAnnotation;
+import edu.cmu.lti.qa4mre.type.DbpediaAnnotation;
 
 public class DbpediaWebBasedAnnotator extends JCasAnnotator_ImplBase {
 	public static final String ANNOTATOR_COMPONENT_ID = "System-dbpedia-spotlight";
